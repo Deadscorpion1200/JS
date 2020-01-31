@@ -10,7 +10,7 @@ let expenses2 = prompt('Введите обязательную статью р�
 let amount2 = prompt('Во сколько это обойдётся?');
 let mission = 1000000;
 let period = 12;
-let budgetMonth = money - (amount1 + amount2);
+let budgetMonth = money - (+amount1 + +amount2);
 let budgetDay = budgetMonth/30;
 let finale = mission/budgetMonth;
 console.log(typeof money);

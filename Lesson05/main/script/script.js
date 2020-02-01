@@ -31,7 +31,7 @@ let getExpensesMonth = function()             // сумма расходов
   for (let i = 0; i<2; i++)
   {
     let amount;
-    expenses [i] = +prompt('Введите обязательную статью расходов: ');
+    expenses [i] = prompt('Введите обязательную статью расходов: ');
     do
     {
       amount = prompt('Во сколько это обойдётся?');

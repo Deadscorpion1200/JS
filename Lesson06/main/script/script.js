@@ -7,26 +7,22 @@ function playing()
   console.log(num);
   if(confirm('Угадйте число от 1 до 100'))
   {
-    while(numb!=num)
+    return function checking()
     {
-      return function()
+      numb =+ prompt('Введите ваше число');
+      if(numb>num)
       {
-        while (numb != num)
-        {
-          numb =+ prompt('Введите ваше число');
-          if(numb>num)
-          {
-            alert('Загаданное число меньше!');
-          }
-          else if(numb < num)
-          {
-            alert('Загаданное число больше!');
-          }
-          else
-          {
-            alert('Поздравляем вас!');
-          }
-        }
+        alert('Загаданное число меньше!');
+        checking();
+      }
+      else if(numb < num)
+      {
+        alert('Загаданное число больше!');
+        checking();
+      }
+      else
+      {
+        alert('Поздравляем вас!');
       }
     }
   }

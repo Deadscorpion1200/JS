@@ -137,7 +137,10 @@ let appData =
   {
     if(appData.deposit)
     {
-      appData.persentDeposit = prompt('Какой годовой процент?', '10');
+      do
+      {
+        appData.persentDeposit = prompt('Какой годовой процент?', 10);
+      }while(!isNumber(appData.persentDeposit))
       do
       {
         appData.moneyDeposit = prompt('Какая сумма заложена?');

@@ -11,7 +11,8 @@ let budgetDay = document.querySelector('.budget_day-value');
 
 let expensesMonth = document.querySelector('.expenses_month-value');
 let addIncome = document.querySelector('.additional_income-value');
-let addExpenses = document.querySelector('.additional_expenses-value');
+let additionalExpensesValue = document.querySelector('.additional_expenses-value');
+let additionalExpensesItem = document.querySelector('.additional_expenses-item')
 let incomePeriod = document.querySelector('.income_period-value');
 let targetMonth = document.querySelector('.target_month-value');
 
@@ -21,7 +22,6 @@ let incomeItems = document.querySelectorAll('.income-items'); // Сумма до
 
 let expensesTitle = document.querySelector('.expenses-title'); // Наименование расходов
 let expensesItems = document.querySelectorAll('.expenses-items');
-let addExpensesField = document.querySelector('.additional_expenses-item'); // Наименования возможных расходов 
 
 let target = document.querySelector('.target-amount');  // Целевая сумма
 let period = document.querySelector('.period-select');  // Время цели
@@ -62,6 +62,9 @@ let appData =
     // console.log(appData.income);
     appData.getExpensesMonth();
     appData.getBudget();
+    appData.getAddExpenses();
+    appData.getAddIncome();
+    appData.showResult();
   },
   addIncomeBlock: function()
   {
@@ -93,6 +96,35 @@ let appData =
         appData.expenses[itemExpenses] = cashExpenses;
       }
     });
+  },
+  getAddExpenses: function()
+  {
+    let addExpenses = additionalExpensesItem.value.split(',');
+    addExpenses.forEach(function(item){
+      item = item.trim();
+      if(item !== '')
+      {
+        appData.addExpenses.push(item);
+      }
+    })
+  },
+  getAddIncome: function()
+  {
+    incomeBlock.forEach(function(item){
+      let itemValue = item.value.trim();
+      if(itemValue !== '')
+      {
+        appData.addIncome.push(itemValue);
+      }
+    })
+  },
+  showResult: function()
+  {
+    budgetMonth.value = appData.budgetMonth;
+    budgetDay.value = appData.budgetDay;
+    expensesMonth.value = appData.expensesMonth;
+    additionalExpensesValue.value = appData.addExpenses.join(', ');
+    additionalIncomeValue.value = appData.addIncome.join(', ');
   },
   asking: function()
   {
@@ -128,7 +160,7 @@ let appData =
     let sum = 0;
     for (let key in appData.expenses)
     {
-      sum += appData.expenses[key];
+      sum += +appData.expenses[key];
     }
     appData.expensesMonth = sum;
     console.log('appData.expensesMonth: ' + appData.expensesMonth);

@@ -51,12 +51,8 @@ let appData =
   // AccaumulatedMonth: 0,
   start: function()
   {
-    if(salaryAmount.value === '')
-    {
-      start.style.display = 'block';
-      return;
-    }
-
+    
+    appData.startMachine();
     appData.budget = salaryAmount.value;
     // console.log(salaryAmount.value);
     appData.getExpenses();
@@ -66,6 +62,14 @@ let appData =
     appData.getAddExpenses();
     appData.getBudget();
     appData.showResult();
+  },
+  startMachine: function()
+  {
+    if(salaryAmount.value === '')
+    {
+      alert('Ошибка! Поле "Месячный доход" должно быть заполнено!');
+      return;
+    }
   },
   addExpensesBlock: function()
   {

@@ -109,7 +109,7 @@ const app = function () {
     expensesItems[1].remove();
     expensesItems[2].remove();
     expensesPlus.style.display = 'block';
-    _this.rangePeriod();
+    periodSelect.value = 1; 
 };
 
 

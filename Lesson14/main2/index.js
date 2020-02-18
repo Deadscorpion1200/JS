@@ -13,9 +13,7 @@ let budgetMonthValue = document.querySelector('.budget_month-value');
 let expensesMonthValue = document.querySelector('.expenses_month-value');
 let accumulatedMonthValue = document.querySelector('.accumulated_month-value');
 let additionalIncomeValue = document.querySelector('.additional_income-value');
-let additionalExpensesValue = document.querySelector(
-    '.additional_expenses-value'
-);
+let additionalExpensesValue = document.querySelector('.additional_expenses-value');
 let incomePeriodValue = document.querySelector('.income_period-value');
 let targetMonthValue = document.querySelector('.target_month-value');
 let targetAmount = document.querySelector('.target-amount');

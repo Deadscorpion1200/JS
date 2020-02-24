@@ -1,15 +1,14 @@
-const first = {
-  hello()
-  {
-    console.log('Привет! Я метод родителя');
+class First {
+  hello() {
+    console.log ('Привет я метод родителя!');
   }
 }
-const second = {
-  hello()
-  {
+
+class Second extends First {
+   hello() {
     super.hello();
-    console.log('А я наследуемый метод!');
+    console.log ('А я наследуемый метод!');
   }
 }
-Object.setPrototypeOf(second, first);
-second.hello();
+let call = new Second();
+call.hello();

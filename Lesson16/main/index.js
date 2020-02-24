@@ -88,7 +88,7 @@ class app {
     this.getAddExpenses();
     this.getAddIncome();
     this.getInfoDeposit();
-    if(!isNumber(this.percentDeposit))
+    if(!isNumber(this.percentDeposit) || (this.percentDeposit > 100) || (this.percentDeposit <= 0))
     {
       alert('Введите корректный процент депозита!');
       return;
